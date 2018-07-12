@@ -13,5 +13,6 @@ Description:
 4. Application count amount of url usage.
 5. Application has account app.
 6. User can make URL active.
+7. Use Pagination for base view. 
 
 
