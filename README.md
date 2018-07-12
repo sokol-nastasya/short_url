@@ -6,6 +6,7 @@ Technology:
 3. Python 3.6
 4. SQLite
 
+Description:
 1.  In the first step, create a mainApp for the basic view and create a short URL.
 2. Application validate if requested url is not in use yet.
 3. In AdminPanel app user can managing URLs and Text (CRUD).
