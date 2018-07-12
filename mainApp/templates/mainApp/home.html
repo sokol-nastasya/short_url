@@ -1,0 +1,62 @@
+{% extends 'mainApp/base.html' %}
+
+{% block main %}
+<br><br>
+	<div class="container">
+		<h1>Add new URL</h1>
+
+		<form method="POST" action=".">
+			
+			{% csrf_token %}
+			{{ form.as_p}}
+					
+			<input type="submit" value="Shorten">
+			
+
+		</form>
+
+		<br><br>
+		
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>URL</th>
+					<th>Text</th>
+					<th>Count</th>
+					<th>Short URL</th>
+					<th>Date</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for obj in obj_list %}
+					<tr>
+						<td><a href="{% url 'adminPanel:details' obj.id %}" style="color: green">{{ obj.url }}</a></td>
+						<td>{{ obj.text }}</td>
+						<td>{{ obj.count }}</td>
+						<td><a href="{% url 'adminPanel:details' obj.id %}" style="color: green">{{ obj.get_short_url }}</a></td>
+						<td>{{ obj.date }}</td>
+						<td>{{ obj.active }}</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div class="paginator">
+		<span class="step-links" style="position: relative; left: 350px;">
+			{% if obj_list.has_previous %}
+				<a href="?page={{ obj_list.previous_page_number }}">&#8592;</a>
+			{% endif %}
+
+			<span class="current">
+					Page {{ obj_list.number }} of {{ obj_list.paginator.num_pages }}.
+			</span>
+
+			{% if obj_list.has_next %}
+				<a href="?page={{ obj_list.next_page_number }}">&#8594;</a>
+			{% endif %}
+		</span>
+	</div>
+	</div>
+{% endblock %}

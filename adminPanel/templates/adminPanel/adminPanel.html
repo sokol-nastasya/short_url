@@ -1,0 +1,32 @@
+{% extends 'mainApp/base.html' %}
+
+{% block main %}
+<br><br>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>URL</th>
+					<th>Text</th>
+					<th>Count</th>
+					<th>Short URL</th>
+					<th>Date</th>
+					<th>Action</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for obj in obj %}
+					<tr>
+						<td><a href="{% url 'adminPanel:details' obj.id %}" style="color: green;">{{ obj.url }}</a></td>
+						<td>{{ obj.text }}</td>
+						<td>{{ obj.count }}</td>
+						<td><a href="{% url 'adminPanel:details' obj.id %}" style="color: green;">{{ obj.get_short_url }}</a></td>
+						<td>{{ obj.date }}</td>
+						<td>{{ obj.active }}</td>
+						<td><a href="{% url 'adminPanel:editUrl' obj.id %}"><i class="fas fa-edit"></i></a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

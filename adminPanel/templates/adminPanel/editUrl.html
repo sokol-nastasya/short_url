@@ -1,0 +1,23 @@
+{% extends 'mainApp/base.html' %}
+
+{% block main %}
+<br><br>
+	<div class="container">
+		<h1>Edit URL</h1>
+
+		<form method="POST" action=".">
+				
+			{% csrf_token %}
+			{{ form.as_p}}
+					
+			<input type="submit" value="Ok">
+			
+		</form>
+
+		<hr>
+		
+
+
+		
+	</div>
+{% endblock %}

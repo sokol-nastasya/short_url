@@ -1,0 +1,40 @@
+{% extends 'mainApp/base.html' %}
+
+{% block main %}
+<br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col lg-4">
+				<h1>Detail:</h1>
+			</div>
+			<div class="col lg-8">
+
+				<a href="{% url 'adminPanel:editUrl' obj.id %}">
+					<i class="fas fa-edit" style="font-size: 2em;"></i>
+				</a>
+				<a href="{% url 'adminPanel:delete_object' obj.id %}">
+					<i class="fas fa-trash-alt" style="font-size: 2em"></i>
+				</a>
+
+
+				<!-- <button onclick="window.location='{% url 'adminPanel:editUrl' obj.id %}' " class="btn btn-primary"><i class="fas fa-edit" style="font-size: 2em;"></i></button> -->
+
+				<!-- <button onclick="window.location='{% url 'adminPanel:delete_object' obj.id %}" class="btn btn-danger"><i class="fas fa-trash-alt" style="font-size: 2em"></i></button> -->
+
+			</div>
+		</div>
+
+		<h2 style="color: green;">Your url:</h2> <h3>{{ obj.url }}</h3>
+		<h2 style="color: green;">New short url:</h2> <h3>{{ obj.get_short_url }}</h3>
+		<hr>
+		<h3>Message:</h3>
+		<h4>{{ obj.get_symb|add:"'TM'" }}</h4>
+		<hr>
+		<data>{{ obj.date }}</data>
+		<p>Active:{{ obj.active }}</p>
+
+	
+
+		
+	</div>
+{% endblock %}

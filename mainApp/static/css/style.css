@@ -1,0 +1,8 @@
+.responsive-menu{
+	float: right;
+}
+
+body, html{
+	width: 100%;
+	display: grid;
+}

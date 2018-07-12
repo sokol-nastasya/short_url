@@ -1,0 +1,21 @@
+{% extends 'mainApp/base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<br><br>
+<h1>Login</h1>
+<div class="page-center container">
+	<form method="POST">
+		{% for field in form %}
+			{% csrf_token %}
+			{{ field.errors }}
+			
+			<input type="{% if field.label == 'Password' %}password{% else %}input{% endif %}" placeholder="{{ field.label }}" name="{{ field.name }}" class="form-control">
+		{% endfor %}
+		<br>
+		<button type="submit" class="btn btn-primary">Login</button>
+		<br><br>
+		<a href="/account/signup">Register</a>
+	</form>
+</div>
+{% endblock %}

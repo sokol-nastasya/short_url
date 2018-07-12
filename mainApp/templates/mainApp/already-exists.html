@@ -1,0 +1,12 @@
+{% extends 'mainApp/base.html' %}
+
+{% block main %}
+<br><br>
+<div class="container">
+	<h1>Exists</h1>
+	<p>{{ obj.url }}</p>
+
+	<p>{{ obj.get_short_url }}</p>
+	<button onclick="window.location='/'" type="button" class="btn btn-success">New one</button>
+</div>
+{% endblock %}
